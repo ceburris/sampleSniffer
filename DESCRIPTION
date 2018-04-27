@@ -1,0 +1,15 @@
+Package: sampleSniffer
+Title: Finds Closest Genetic Match Between Samples
+Version: 0.0.0.9000
+Authors@R: c(person("Chad", "Burris", email="Chad.Burris@gilead.com", role="cre"),
+             person("Yevgeniy", "Gindin", email="Yevgeniy.Gindin@gilead.com", role="aut"))
+Description: sampleSniffer reads in all annotated VCF files in a directory, calculates
+	the genetic distance between each pair of samples as number of SNP matches/total
+        number of SNPS with valid values for both samples, then finds the closest
+    	genetic match for each sample.
+Depends: R (>= 3.4.3)
+License: CC0
+Encoding: UTF-8
+LazyData: true
+Imports: vcfR, dplyr, pheatmap
+RoxygenNote: 6.0.1
