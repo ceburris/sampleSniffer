@@ -11,8 +11,8 @@ getSnps <- function(subsetByChromosome=NULL,snps=snps,input=input){
 
 options(stringsAsFactors = FALSE)
 
-files = list.files(input,pattern="*annot.vcf", full.names=TRUE)
-filenames = list.files(input,pattern="*annot.vcf")
+files = list.files(input,pattern="*.vcf", full.names=TRUE)
+filenames = list.files(input,pattern="*.vcf")
 
   for (i in 1:length(files)){
     file <- files[i]

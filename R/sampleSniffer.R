@@ -10,8 +10,9 @@
 #' @param snps Name of file containing the SNP IDs to be used
 #' @param chromsome Chromosome number to be used
 #' @param output Name of output file
+#' @return Matrix containing calculated genetic distance between samples
 #' @export
-sampleSniffer <- function(input=NULL,snps=NULL,chromosome=NULL,output="sampleSniffer.pdf"){
+sampleSniffer <- function(input=NULL,snps=NULL,chromosome=NULL,output="sampleSniffer"){
     if (is.null(snps) && is.null(chromosome)){
         stop("Either snps or chromosome option must be supplied")
     } else if (!is.null(snps) && !is.null(chromosome)){
@@ -33,7 +34,10 @@ sampleSniffer <- function(input=NULL,snps=NULL,chromosome=NULL,output="sampleSni
     distance = calculateDistance(calls)
 
     m <- apply(distance, 1, getClosest)
-    print(cbind(names(distance), names(distance)[m]))
+    matches.out = (cbind(names(distance), names(distance)[m]))
+    write.table(matches.out,paste(output,".txt",sep=""),row.names=F,col.names=F)
 
-    pheatmap::pheatmap(distance,display_numbers=TRUE)
+    pheatmap::pheatmap(distance,display_numbers=TRUE,filename=paste(output,".pdf",sep=""))
+
+    return(distance)
 }
