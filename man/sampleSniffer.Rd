@@ -5,7 +5,7 @@
 \title{Finds the Closest Genetic Match for Each Sample}
 \usage{
 sampleSniffer(input = NULL, snps = NULL, chromosome = NULL,
-  output = "sampleSniffer.pdf")
+  output = "sampleSniffer")
 }
 \arguments{
 \item{input}{Input directory containing VCF files}
@@ -15,6 +15,9 @@ sampleSniffer(input = NULL, snps = NULL, chromosome = NULL,
 \item{output}{Name of output file}
 
 \item{chromsome}{Chromosome number to be used}
+}
+\value{
+Matrix containing calculated genetic distance between samples
 }
 \description{
 Reads in all VCF files in input directory, calculates genetic distance between each
